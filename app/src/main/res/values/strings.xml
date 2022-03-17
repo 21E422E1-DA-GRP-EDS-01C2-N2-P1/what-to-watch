@@ -5,4 +5,5 @@
     <string name="list_empty">Nenhum resultado encontrado :(</string>
     <string name="salvar_livro_em_favoritos">Livro salvo em "Meus Favoritos"</string>
     <string name="livro_ja_salvo">Livro já salvo em "Meus Favoritos"</string>
+    <string name="comprar">Comprar</string>
 </resources>

@@ -31,8 +31,7 @@ class ListaLivrosActivity : AppCompatActivity() {
 //        Obter título e autor inseridos pelo usuário
         val titulo_livro = intent.getStringExtra(TITULO_LIVRO_REQUEST)
         val autor_livro = intent.getStringExtra(AUTOR_LIVRO_REQUEST)
-        //println(dao.getAllBooksFromDB())
-//        Instanciando a ViewModelo
+//        Instanciando a ViewModel
         livroViewModel = LivroViewModel(applicationContext)
         // Verificando a conexão com a internet
         if (Utils.isNetworkConnected(this)) {

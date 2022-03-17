@@ -59,6 +59,13 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/size_14_sp" />
 
+            <Button
+                android:id="@+id/btnComprar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20_dp"
+                android:text="@string/comprar" />
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

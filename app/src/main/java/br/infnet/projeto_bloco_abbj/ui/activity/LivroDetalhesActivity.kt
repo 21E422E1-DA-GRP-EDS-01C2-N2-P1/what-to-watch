@@ -1,8 +1,11 @@
 package br.infnet.projeto_bloco_abbj.ui.activity
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
 import br.infnet.projeto_bloco_abbj.R
@@ -22,6 +25,12 @@ class LivroDetalhesActivity : AppCompatActivity() {
         val livro = intent.getSerializableExtra(EXTRA_LIVRO) as Item
 
         bindComponents(livro)
+
+        val button: Button = findViewById(R.id.btnComprar)
+        button.setOnClickListener {
+            val url = livro.saleInfo?.buyLink
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+        }
     }
 
     private fun bindComponents(livro: Item) {
