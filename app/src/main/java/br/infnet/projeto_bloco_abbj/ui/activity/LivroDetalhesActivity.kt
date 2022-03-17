@@ -18,7 +18,7 @@ class LivroDetalhesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_livro_detalhes)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        Récupérer l'objet Book
+//        Recuperar objeto
         val livro = intent.getSerializableExtra(EXTRA_LIVRO) as Item
 
         bindComponents(livro)
