@@ -5,12 +5,15 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
 import br.infnet.projeto_bloco_abbj.R
 import br.infnet.projeto_bloco_abbj.data.EXTRA_LIVRO
 import br.infnet.projeto_bloco_abbj.data.model.Item
+import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_livro_detalhes.*
 import kotlinx.android.synthetic.main.content_livros_detalhes.*
@@ -29,7 +32,14 @@ class LivroDetalhesActivity : AppCompatActivity() {
         val button: Button = findViewById(R.id.btnComprar)
         button.setOnClickListener {
             val url = livro.saleInfo?.buyLink
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+            val contextView = findViewById<View>(R.id.btnComprar)
+            if (url != null){
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+            } else {
+                Snackbar.make(contextView, "Livro indisponivel", Snackbar.LENGTH_SHORT)
+                    .show()
+            }
+
         }
     }
 

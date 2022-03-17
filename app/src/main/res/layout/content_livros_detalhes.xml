@@ -63,8 +63,11 @@
                 android:id="@+id/btnComprar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_20_dp"
-                android:text="@string/comprar" />
+                android:layout_marginTop="20dp"
+                android:background="@color/purple_700"
+                android:text="@string/comprar"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
 
         </LinearLayout>
     </ScrollView>
