@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">projeto_bloco_abbj</string>
+    <string name="field_required">Preencha o título do livro ou o nome do autor!</string>
+    <string name="no_internet_error">Sem internet! Exibindo lista armazenada em cache</string>
+    <string name="list_empty">Nenhum resultado encontrado :(</string>
+    <string name="salvar_livro_em_favoritos">Livro salvo em "Meus Favoritos"</string>
+    <string name="livro_ja_salvo">Livro já salvo em "Meus Favoritos"</string>
+</resources>
