@@ -7,11 +7,11 @@ import java.io.Serializable
 
 @Entity(tableName = "book_table")
 data class Item(
-    val kind: String?, // books#volume
+    val kind: String?,
     @PrimaryKey
-    val id: String, // Ato7AAAAcAAJ
-    val etag: String?, // ojUBXVe6yDg
-    val selfLink: String?, // https://www.googleapis.com/books/v1/volumes/Ato7AAAAcAAJ
+    val id: String,
+    val etag: String?,
+    val selfLink: String?,
     @Embedded val volumeInfo: VolumeInfo?,
     @Embedded val saleInfo: SaleInfo?,
 //    @Embedded val accessInfo: AccessInfo?,

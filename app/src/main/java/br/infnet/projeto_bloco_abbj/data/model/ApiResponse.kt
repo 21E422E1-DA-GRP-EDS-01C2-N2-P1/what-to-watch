@@ -1,7 +1,7 @@
 package br.infnet.projeto_bloco_abbj.data.model
 
 data class ApiResponse(
-    val kind: String?, // books#volumes
-    val totalItems: Int?, // 433
+    val kind: String?,
+    val totalItems: Int?,
     val items: List<Item>
 )
