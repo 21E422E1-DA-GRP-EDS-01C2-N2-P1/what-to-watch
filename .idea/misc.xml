@@ -9,12 +9,12 @@
         <entry key="..\:/Users/anacm/AndroidStudioProjects/what-to-watch/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/anacm/AndroidStudioProjects/what-to-watch/app/src/main/res/layout/content_lista_livros.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/anacm/AndroidStudioProjects/what-to-watch/app/src/main/res/layout/content_livros_detalhes.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/anacm/AndroidStudioProjects/what-to-watch/app/src/main/res/layout/content_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/anacm/AndroidStudioProjects/what-to-watch/app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="..\:/Users/anacm/AndroidStudioProjects/what-to-watch/app/src/main/res/layout/livro_item.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

@@ -11,6 +11,9 @@ import br.infnet.projeto_bloco_abbj.R
 import br.infnet.projeto_bloco_abbj.data.model.Item
 import br.infnet.projeto_bloco_abbj.ui.adapter.LivroAdapter
 import br.infnet.projeto_bloco_abbj.ui.viewmodel.LivroViewModel
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import kotlinx.android.synthetic.main.activity_favoritos.*
 import kotlinx.android.synthetic.main.content_lista_livros.*
 
@@ -22,6 +25,22 @@ class FavoritosActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         swipe_refresh_list_book.isEnabled = false
+
+        val adRequest = AdRequest.Builder().build()
+
+        InterstitialAd.load(this,
+            "ca-app-pub-3940256099942544/1033173712",
+            adRequest,
+            object: InterstitialAdLoadCallback() {
+
+                override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    interstitialAd.show(this@FavoritosActivity)
+                }
+
+                //override fun onAdFailedToLoad(p0: LoadAdError) {}
+
+            })
+
         livroViewModel = LivroViewModel(this)
         livroViewModel.listarLivrosDaDB()
             .observe(
