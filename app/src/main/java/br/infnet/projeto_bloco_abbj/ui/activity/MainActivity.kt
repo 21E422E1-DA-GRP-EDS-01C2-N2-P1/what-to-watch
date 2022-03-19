@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.infnet.projeto_bloco_abbj.R
+import br.infnet.projeto_bloco_abbj.data.AD_UNIT_ID
 import br.infnet.projeto_bloco_abbj.data.AUTOR_LIVRO_REQUEST
 import br.infnet.projeto_bloco_abbj.data.TITULO_LIVRO_REQUEST
 import com.google.android.gms.ads.AdRequest
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
             InterstitialAd.load(this,
                 "ca-app-pub-3940256099942544/1033173712",
+                //AD_UNIT_ID,
                 adRequest,
                 object: InterstitialAdLoadCallback() {
 
