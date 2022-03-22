@@ -27,11 +27,11 @@ class FavoritosActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         swipe_refresh_list_book.isEnabled = false
 
-        val adRequest = AdRequest.Builder().build()
+        /*val adRequest = AdRequest.Builder().build()
 
         InterstitialAd.load(this,
-            "ca-app-pub-3940256099942544/1033173712",
-            //AD_UNIT_ID,
+            //"ca-app-pub-3940256099942544/1033173712",
+            AD_UNIT_ID,
             adRequest,
             object: InterstitialAdLoadCallback() {
 
@@ -41,7 +41,7 @@ class FavoritosActivity : AppCompatActivity() {
 
                 //override fun onAdFailedToLoad(p0: LoadAdError) {}
 
-            })
+            })*/
 
         livroViewModel = LivroViewModel(this)
         livroViewModel.listarLivrosDaDB()
