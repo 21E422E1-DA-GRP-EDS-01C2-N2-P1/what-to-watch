@@ -37,8 +37,8 @@ class MainActivity : AppCompatActivity() {
             val adRequest = AdRequest.Builder().build()
 
             InterstitialAd.load(this,
-                "ca-app-pub-3940256099942544/1033173712",
-                //AD_UNIT_ID,
+                //"ca-app-pub-3940256099942544/1033173712",
+                AD_UNIT_ID,
                 adRequest,
                 object: InterstitialAdLoadCallback() {
 
