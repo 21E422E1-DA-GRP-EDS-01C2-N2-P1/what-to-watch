@@ -19,21 +19,6 @@
             android:value="ca-app-pub-1406919881822982~8076602858"/>
 
         <activity
-            android:name=".ui.activity.FavoritosActivity"
-            android:label="Meus Favoritos"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activity.ListaLivrosActivity"
-            android:label="Resultado da Busca"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activity.LivroDetalhesActivity"
-            android:label="Detalhes"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:exported="false" />
-        <activity
             android:name=".ui.activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"

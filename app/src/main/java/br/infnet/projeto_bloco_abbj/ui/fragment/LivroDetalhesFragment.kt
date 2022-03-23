@@ -1,50 +1,60 @@
-package br.infnet.projeto_bloco_abbj.ui.activity
+package br.infnet.projeto_bloco_abbj.ui.fragment
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import br.infnet.projeto_bloco_abbj.R
 import br.infnet.projeto_bloco_abbj.data.EXTRA_LIVRO
 import br.infnet.projeto_bloco_abbj.data.model.Item
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_livro_detalhes.*
-import kotlinx.android.synthetic.main.content_livros_detalhes.*
 
-class LivroDetalhesActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_livro_detalhes)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        Recuperar objeto
-        val livro = intent.getSerializableExtra(EXTRA_LIVRO) as Item
+
+class LivroDetalhesFragment : Fragment() {
+
+    private lateinit var btnComprar: Button
+    private lateinit var tituloLivro: TextView
+    private lateinit var autorLivro: TextView
+    private lateinit var livroInfo: TextView
+    private lateinit var descricaoLivro: TextView
+    private lateinit var imgCapa: ImageView
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_livro_detalhes, container, false)
+        setupWidgets(view)
+        val livro = arguments?.getSerializable(EXTRA_LIVRO) as Item
 
         bindComponents(livro)
 
-        val button: Button = findViewById(R.id.btnComprar)
-        button.setOnClickListener {
+        btnComprar = view.findViewById(R.id.btnComprar)
+        btnComprar.setOnClickListener {
             val url = livro.saleInfo?.buyLink
-            val contextView = findViewById<View>(R.id.btnComprar)
-            if (url != null){
+            if (url != null) {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
             } else {
-                Snackbar.make(contextView, "Livro indisponivel", Snackbar.LENGTH_SHORT)
+                Snackbar.make(view, "Livro indisponivel", Snackbar.LENGTH_SHORT)
                     .show()
             }
 
         }
+        return view
     }
 
     private fun bindComponents(livro: Item) {
-        Picasso.with(this)
+        Picasso.with(requireContext())
             .load(livro.volumeInfo?.imageLinks?.smallThumbnail)
             .into(imgCapa)
         tituloLivro.text = livro.volumeInfo?.title
@@ -58,20 +68,23 @@ class LivroDetalhesActivity : AppCompatActivity() {
         descricaoLivro.text = livro.volumeInfo?.description
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-    }
-
     override fun onContextItemSelected(item: MenuItem): Boolean {
         Log.d("item id", item.itemId.toString())
         Log.d("android.R.id.home", android.R.id.home.toString())
         when (item.itemId) {
             android.R.id.home -> {
-                finish()
+                requireActivity().finish()
                 return true
             }
         }
         return super.onContextItemSelected(item)
+    }
+
+    private fun setupWidgets(view: View) {
+        tituloLivro = view.findViewById(R.id.tituloLivro)
+        autorLivro = view.findViewById(R.id.autorLivro)
+        livroInfo = view.findViewById(R.id.livroInfo)
+        descricaoLivro = view.findViewById(R.id.descricaoLivro)
+        imgCapa = view.findViewById(R.id.imgCapa)
     }
 }
