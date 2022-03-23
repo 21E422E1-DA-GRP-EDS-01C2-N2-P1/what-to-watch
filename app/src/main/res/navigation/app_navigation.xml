@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/signinFragment">
+
+    <fragment
+        android:id="@+id/signinFragment"
+        android:name="br.infnet.projeto_bloco_abbj.ui.fragment.SigninFragment"
+        android:label="signin_fragment"
+        tools:layout="@layout/fragment_signin" >
+        <action
+            android:id="@+id/action_signinFragment_to_listaLivrosFragment"
+            app:destination="@id/listaLivrosFragment" />
+        <action
+            android:id="@+id/action_signinFragment_to_favoritosFragment"
+            app:destination="@id/favoritosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaLivrosFragment"
+        android:name="br.infnet.projeto_bloco_abbj.ui.fragment.ListaLivrosFragment"
+        android:label="lista_livros_fragment"
+        tools:layout="@layout/fragment_lista_livros" >
+        <action
+            android:id="@+id/action_listaLivrosFragment_to_livroDetalhesFragment"
+            app:destination="@id/livroDetalhesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/livroDetalhesFragment"
+        android:name="br.infnet.projeto_bloco_abbj.ui.fragment.LivroDetalhesFragment"
+        android:label="fragment_livro_detalhes"
+        tools:layout="@layout/fragment_livro_detalhes" />
+    <fragment
+        android:id="@+id/favoritosFragment"
+        android:name="br.infnet.projeto_bloco_abbj.ui.fragment.FavoritosFragment"
+        android:label="fragment_favoritos" />
+</navigation>

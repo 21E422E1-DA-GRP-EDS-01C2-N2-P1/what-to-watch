@@ -2,6 +2,7 @@ package br.infnet.projeto_bloco_abbj.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.widget.Toast
 
 object Utils {
 
