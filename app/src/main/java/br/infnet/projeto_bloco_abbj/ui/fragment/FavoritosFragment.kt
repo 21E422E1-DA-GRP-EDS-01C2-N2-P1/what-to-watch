@@ -1,5 +1,6 @@
 package br.infnet.projeto_bloco_abbj.ui.fragment
 
+import android.content.Intent.getIntent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -9,21 +10,27 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import br.infnet.projeto_bloco_abbj.R
+import br.infnet.projeto_bloco_abbj.data.AD_UNIT_ID
 import br.infnet.projeto_bloco_abbj.data.EXTRA_LIVRO
 import br.infnet.projeto_bloco_abbj.data.model.Item
 import br.infnet.projeto_bloco_abbj.ui.adapter.LivroAdapter
 import br.infnet.projeto_bloco_abbj.ui.factory.LivrosViewModelFactory
 import br.infnet.projeto_bloco_abbj.ui.viewmodel.LivrosViewModel
+import br.infnet.projeto_bloco_abbj.utils.FragmentReload
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+
 
 class FavoritosFragment : Fragment() {
 
@@ -32,6 +39,7 @@ class FavoritosFragment : Fragment() {
     private lateinit var recyclerListaLivros: RecyclerView
     private lateinit var listaVazia: TextView
 
+    private lateinit var favoritos: FavoritosFragment
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,7 +63,8 @@ class FavoritosFragment : Fragment() {
         val adRequest = AdRequest.Builder().build()
 
         InterstitialAd.load(requireContext(),
-            getString(R.string.ad_id_test),
+            //getString(R.string.ad_id_test),
+            AD_UNIT_ID,
             adRequest,
             object : InterstitialAdLoadCallback() {
 
@@ -94,13 +103,21 @@ class FavoritosFragment : Fragment() {
     }
 
     private fun listItemClicked(book: Item) {
+
         viewModel.apagarLivroDaDB(book)
-        requireActivity().finish();
-        requireActivity().overridePendingTransition(0, 0);
+        //requireActivity().finish();
+        //requireActivity().overridePendingTransition(0, 0);
+
+        onDeleteClick()
+
         /*startActivity(getIntent());
         overridePendingTransition(0, 0);
         */
         Toast.makeText(requireContext(), "Livro removido :(", Toast.LENGTH_LONG).show()
+    }
+
+    private fun onDeleteClick(){
+        FragmentReload.refreshFragment(context)
     }
 
     private fun setupWidgets(view: View) {

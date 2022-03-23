@@ -11,6 +11,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.infnet.projeto_bloco_abbj.R
+import br.infnet.projeto_bloco_abbj.data.AD_UNIT_ID
 import br.infnet.projeto_bloco_abbj.data.AUTOR_LIVRO_REQUEST
 import br.infnet.projeto_bloco_abbj.data.TITULO_LIVRO_REQUEST
 import com.google.android.gms.ads.AdRequest
@@ -44,7 +45,8 @@ class SigninFragment : Fragment() {
             val adRequest = AdRequest.Builder().build()
 
             InterstitialAd.load(requireContext(),
-                getString(R.string.ad_id_test),
+                //getString(R.string.ad_id_test),
+                AD_UNIT_ID,
                 adRequest,
                 object: InterstitialAdLoadCallback() {
 
