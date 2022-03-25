@@ -7,9 +7,18 @@
 
     <fragment
         android:id="@+id/signinFragment"
-        android:name="br.infnet.projeto_bloco_abbj.ui.fragment.SigninFragment"
+        android:name="br.infnet.projeto_bloco_abbj.SigninFragment"
         android:label="signin_fragment"
-        tools:layout="@layout/fragment_signin" >
+        tools:layout="@layout/signin_fragment" >
+        <action
+            android:id="@+id/action_signinFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="br.infnet.projeto_bloco_abbj.ui.fragment.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_signinFragment_to_listaLivrosFragment"
             app:destination="@id/listaLivrosFragment" />

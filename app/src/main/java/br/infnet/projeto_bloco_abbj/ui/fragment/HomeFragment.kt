@@ -18,7 +18,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 
-class SigninFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     private lateinit var btnBuscar: Button
     private lateinit var btnFavoritos: Button
@@ -29,7 +29,7 @@ class SigninFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_signin, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
         setupWidgets(view)
         return view
     }
