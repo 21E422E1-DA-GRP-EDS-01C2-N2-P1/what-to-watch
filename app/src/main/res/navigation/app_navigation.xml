@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/signinFragment"
-        android:name="br.infnet.projeto_bloco_abbj.SigninFragment"
+        android:name="br.infnet.projeto_bloco_abbj.ui.fragment.SigninFragment"
         android:label="signin_fragment"
         tools:layout="@layout/signin_fragment" >
         <action
