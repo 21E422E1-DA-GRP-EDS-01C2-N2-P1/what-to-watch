@@ -1,4 +1,4 @@
-package br.infnet.projeto_bloco_abbj
+package br.infnet.projeto_bloco_abbj.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 

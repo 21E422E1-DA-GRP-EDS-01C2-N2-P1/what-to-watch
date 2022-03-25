@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "440155229351",
+    "project_id": "projeto-bloco-abbj",
+    "storage_bucket": "projeto-bloco-abbj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440155229351:android:9d9e3a4d9c0cd80826df82",
+        "android_client_info": {
+          "package_name": "br.infnet.projeto_bloco_abbj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440155229351-gscra9tngdo4g5jg1n3n30tb1ot8rkpa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSRHPpJRKQmKsDE97Xao8BqHS02nvXpeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440155229351-gscra9tngdo4g5jg1n3n30tb1ot8rkpa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
