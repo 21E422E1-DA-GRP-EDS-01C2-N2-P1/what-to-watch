@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_signinFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_signinFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
     </fragment>
     <fragment
         android:id="@+id/HomeFragment"
@@ -44,4 +47,9 @@
         android:id="@+id/favoritosFragment"
         android:name="br.infnet.projeto_bloco_abbj.ui.fragment.FavoritosFragment"
         android:label="fragment_favoritos" />
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="br.infnet.projeto_bloco_abbj.ui.fragment.SignupFragment"
+        android:label="signup_fragment"
+        tools:layout="@layout/signup_fragment" />
 </navigation>

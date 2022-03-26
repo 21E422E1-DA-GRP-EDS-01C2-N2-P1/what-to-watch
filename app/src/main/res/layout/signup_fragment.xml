@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
+    android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_header_selector"
-    tools:context=".ui.fragment.SigninFragment">
+    tools:context=".ui.fragment.SignupFragment">
 
     <ImageView
         android:id="@+id/imageView"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextSigninEmail"
+        android:id="@+id/editTextSignupEmail"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -31,15 +31,13 @@
         android:ems="10"
         android:hint="   Email"
         android:inputType="textEmailAddress"
-        android:lineSpacingExtra="8sp"
-        android:shadowColor="#40000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/editTextSigninSenha"
+        android:id="@+id/editTextSignupSenha"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -51,27 +49,29 @@
         android:ems="10"
         android:hint="   Senha"
         android:inputType="textPassword"
-        android:shadowColor="#40000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSigninEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSignupEmail" />
 
-    <CheckBox
-        android:id="@+id/checkboxSigninLembrarSenha"
+    <EditText
+        android:id="@+id/editTextSignupRepitaSenha"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:buttonTint="#A4000000"
-        android:text="Lembrar-me"
-        android:textColor="#000000"
+        android:width="24dp"
+        android:height="24dp"
+        android:background="@drawable/layout_shadown_white"
+        android:ems="10"
+        android:hint="   Repita a senha"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSigninSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSignupSenha" />
 
     <Button
-        android:id="@+id/btnSigninEntrar"
+        android:id="@+id/btnSignupCadastrar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -81,24 +81,23 @@
         android:backgroundTint="@color/colorDarkBlue"
         android:elevation="2dp"
         android:shadowColor="#40000000"
-        android:text="Entrar"
+        android:text="Cadastrar"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkboxSigninLembrarSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSignupRepitaSenha" />
 
     <TextView
-        android:id="@+id/textViewSigninCadastrar"
+        android:id="@+id/textViewSignupLogar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:text="Novo por aqui? Cadastre-se"
+        android:text="Já possui cadastro? Acesse por aqui"
         android:textAlignment="center"
         android:textColor="@color/colorDarkBlue"
-        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSigninEntrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSignupCadastrar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
