@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import br.infnet.projeto_bloco_abbj.R
 import br.infnet.projeto_bloco_abbj.ui.viewmodel.SigninViewModel
@@ -30,6 +31,7 @@ class SigninFragment : Fragment() {
     private lateinit var editTextSigninSenha: EditText
     private lateinit var checkboxSigninLembrar: CheckBox
     private lateinit var btnSigninEntrar: Button
+    private lateinit var textViewSigninCadastrar: TextView
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
@@ -41,6 +43,7 @@ class SigninFragment : Fragment() {
         editTextSigninSenha = view.findViewById(R.id.editTextSigninSenha)
         checkboxSigninLembrar = view.findViewById(R.id.checkboxSigninLembrarSenha)
         btnSigninEntrar = view.findViewById(R.id.btnSigninEntrar)
+        textViewSigninCadastrar = view.findViewById(R.id.textViewSigninCadastrar)
         auth = Firebase.auth // Instância de FirebaseAuth
         return view
     }
@@ -74,6 +77,9 @@ class SigninFragment : Fragment() {
             }*/
         }
 
+        textViewSigninCadastrar.setOnClickListener{
+            findNavController().navigate(R.id.signupFragment)
+        }
 //        FirebaseAuth
         /*var currentUser = auth.currentUser
         if (currentUser == null) {
