@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorDarkBlue">#050D4E</color>
     <color name="colorLightBlue">#699DE5</color>
+    <color name="colorMediumBlue">#3F84C4</color>
 
     <color name="colorPrimary">#050D4E</color>
     <color name="colorPrimaryDark">#050D4E</color>
