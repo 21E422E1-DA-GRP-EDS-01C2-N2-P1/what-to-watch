@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_signinFragment_to_favoritosFragment"
             app:destination="@id/favoritosFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaLivrosFragment"
@@ -52,4 +55,8 @@
         android:name="br.infnet.projeto_bloco_abbj.ui.fragment.SignupFragment"
         android:label="signup_fragment"
         tools:layout="@layout/signup_fragment" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="br.infnet.projeto_bloco_abbj.ui.fragment.AboutFragment"
+        android:label="AboutFragment" />
 </navigation>

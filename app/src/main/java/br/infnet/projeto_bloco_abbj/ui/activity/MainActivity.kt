@@ -1,16 +1,40 @@
 package br.infnet.projeto_bloco_abbj.ui.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import br.infnet.projeto_bloco_abbj.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var btnNav: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         //carregaAnuncios()
+
+        btnNav = findViewById(R.id.bottomNavigationView)
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        var navController = findNavController(R.id.fragmentContainerView)
+        btnNav.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            btnNav.visibility = if(destination.id == R.id.signinFragment || destination.id == R.id.signupFragment) {
+                View.GONE
+            } else {
+                View.VISIBLE
+            }
+        }
 
     }
 
