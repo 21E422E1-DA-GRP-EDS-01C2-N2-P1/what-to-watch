@@ -1,6 +1,5 @@
 package br.infnet.projeto_bloco_abbj.ui.fragment
 
-import android.content.Intent.getIntent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -10,11 +9,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +19,7 @@ import br.infnet.projeto_bloco_abbj.R
 import br.infnet.projeto_bloco_abbj.data.AD_UNIT_ID
 import br.infnet.projeto_bloco_abbj.data.EXTRA_LIVRO
 import br.infnet.projeto_bloco_abbj.data.model.Item
+import br.infnet.projeto_bloco_abbj.ui.adapter.FavoritosAdapter
 import br.infnet.projeto_bloco_abbj.ui.adapter.LivroAdapter
 import br.infnet.projeto_bloco_abbj.ui.factory.LivrosViewModelFactory
 import br.infnet.projeto_bloco_abbj.ui.viewmodel.LivrosViewModel
@@ -36,10 +33,9 @@ class FavoritosFragment : Fragment() {
 
     private lateinit var viewModel: LivrosViewModel
     private lateinit var swiperRefresh: SwipeRefreshLayout
-    private lateinit var recyclerListaLivros: RecyclerView
+    private lateinit var recyclerLivrosFavoritos: RecyclerView
     private lateinit var listaVazia: TextView
 
-    private lateinit var favoritos: FavoritosFragment
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,13 +45,6 @@ class FavoritosFragment : Fragment() {
         setupViewModel()
         loadAds()
 
-        viewModel.listarLivrosDaDB()
-            .observe(
-                this,
-                Observer {
-                    listaLivrosRecyclerView(it)
-                }
-            )
         return view
     }
 
@@ -91,28 +80,20 @@ class FavoritosFragment : Fragment() {
         val frag = this
         if (livros.isEmpty()) listaVazia.visibility = View.VISIBLE
         else {
-            recyclerListaLivros.apply {
+            recyclerLivrosFavoritos.apply {
                 setHasFixedSize(true)
                 swiperRefresh.isRefreshing = false
                 layoutManager = LinearLayoutManager(context)
                 adapter = livros.let {
-                    LivroAdapter(it, frag::detalhaLivro, frag::listItemClicked)
+                    FavoritosAdapter(it, frag::deleteItem, frag::detalhaLivro)
                 }
             }
         }
     }
 
-    private fun listItemClicked(book: Item) {
-
+    private fun deleteItem(book: Item) {
         viewModel.apagarLivroDaDB(book)
-        //requireActivity().finish();
-        //requireActivity().overridePendingTransition(0, 0);
-
         onDeleteClick()
-
-        /*startActivity(getIntent());
-        overridePendingTransition(0, 0);
-        */
         Toast.makeText(requireContext(), "Livro removido :(", Toast.LENGTH_LONG).show()
     }
 
@@ -121,7 +102,7 @@ class FavoritosFragment : Fragment() {
     }
 
     private fun setupWidgets(view: View) {
-        recyclerListaLivros = view.findViewById(R.id.recycler_view_lista_livros)
+        recyclerLivrosFavoritos = view.findViewById(R.id.recycler_view_lista_livros)
         listaVazia = view.findViewById(R.id.lista_vazia)
         swiperRefresh = view.findViewById(R.id.swipe_refresh_list_book)
     }
@@ -131,6 +112,13 @@ class FavoritosFragment : Fragment() {
         val vmFactory = LivrosViewModelFactory(requireContext())
         viewModel = ViewModelProvider(this, vmFactory)
             .get(LivrosViewModel::class.java)
+        viewModel.listarLivrosDaDB()
+            .observe(
+                this,
+                Observer {
+                    listaLivrosRecyclerView(it)
+                }
+            )
     }
 
     fun detalhaLivro(livro: Item) {
