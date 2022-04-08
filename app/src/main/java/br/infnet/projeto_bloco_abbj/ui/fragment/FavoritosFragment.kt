@@ -20,7 +20,6 @@ import br.infnet.projeto_bloco_abbj.data.AD_UNIT_ID
 import br.infnet.projeto_bloco_abbj.data.EXTRA_LIVRO
 import br.infnet.projeto_bloco_abbj.data.model.Item
 import br.infnet.projeto_bloco_abbj.ui.adapter.FavoritosAdapter
-import br.infnet.projeto_bloco_abbj.ui.adapter.LivroAdapter
 import br.infnet.projeto_bloco_abbj.ui.factory.LivrosViewModelFactory
 import br.infnet.projeto_bloco_abbj.ui.viewmodel.LivrosViewModel
 import br.infnet.projeto_bloco_abbj.utils.FragmentReload
@@ -85,7 +84,7 @@ class FavoritosFragment : Fragment() {
                 swiperRefresh.isRefreshing = false
                 layoutManager = LinearLayoutManager(context)
                 adapter = livros.let {
-                    FavoritosAdapter(it, frag::deleteItem, frag::detalhaLivro)
+                    FavoritosAdapter(it, frag::deleteItem, frag::detalhaLivro, frag::abreAnotacoes)
                 }
             }
         }
@@ -122,7 +121,13 @@ class FavoritosFragment : Fragment() {
     }
 
     fun detalhaLivro(livro: Item) {
-        findNavController().navigate(R.id.livroDetalhesFragment, bundleOf(EXTRA_LIVRO to livro))
+        findNavController().navigate(R.id.livroDetalhesFragment,
+            bundleOf(EXTRA_LIVRO to livro))
+    }
+
+    fun abreAnotacoes(livro: Item) {
+        findNavController().navigate(R.id.listaAnotacoesFragment,
+            bundleOf(EXTRA_LIVRO to livro))
     }
 
 }
