@@ -15,7 +15,8 @@ import kotlinx.android.synthetic.main.livro_item.view.*
 
 class FavoritosAdapter(val livros: List<Item>,
                        val deleteItem: (Item) -> Unit,
-                       val detalhaLivro: (Item) -> Unit)
+                       val detalhaLivro: (Item) -> Unit,
+                       val abreAnotacoes: (Item) -> Unit)
     : RecyclerView.Adapter<FavoritosAdapter.FavoritosAdapterViewHolder>() {
     lateinit var context: Context
 
@@ -47,6 +48,9 @@ class FavoritosAdapter(val livros: List<Item>,
         }
         holder.btnDelete.setOnClickListener {
             deleteItem(livro)
+        }
+        holder.btnEdit.setOnClickListener {
+            abreAnotacoes(livro)
         }
         holder.itemView.setOnClickListener {
             detalhaLivro(livro)

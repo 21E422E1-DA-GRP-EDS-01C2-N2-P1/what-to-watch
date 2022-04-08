@@ -7,15 +7,19 @@
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/activity_lista_livros.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/activity_livro_detalhes.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/add_anotacao_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/anotacao_item.xml" value="0.4" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/content_lista_livros.xml" value="0.4" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/content_livros_detalhes.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/detalha_anotacao_fragment.xml" value="0.4" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/favorito_item.xml" value="0.4" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/fragment_favoritos.xml" value="0.4" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/fragment_favoritos_old.xml" value="0.15729166666666666" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/fragment_lista_livros.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/fragment_livro_detalhes.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/fragment_signin.xml" value="0.24259259259259258" />
+        <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/lista_anotacoes_fragment.xml" value="0.4" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/lista_livros_fragment.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/livro_item.xml" value="0.23697916666666666" />
         <entry key="..\:/Users/Bruno/OneDrive/Infnet/Bloco2_ProjetoDesenvolvimentoAndroid/teste/app/src/main/res/layout/signin_fragment.xml" value="0.25416666666666665" />

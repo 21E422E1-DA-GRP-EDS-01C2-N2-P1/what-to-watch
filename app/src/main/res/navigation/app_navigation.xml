@@ -49,7 +49,11 @@
     <fragment
         android:id="@+id/favoritosFragment"
         android:name="br.infnet.projeto_bloco_abbj.ui.fragment.FavoritosFragment"
-        android:label="fragment_favoritos" />
+        android:label="fragment_favoritos" >
+        <action
+            android:id="@+id/action_favoritosFragment_to_listaAnotacoesFragment"
+            app:destination="@id/listaAnotacoesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signupFragment"
         android:name="br.infnet.projeto_bloco_abbj.ui.fragment.SignupFragment"
@@ -59,4 +63,26 @@
         android:id="@+id/aboutFragment"
         android:name="br.infnet.projeto_bloco_abbj.ui.fragment.AboutFragment"
         android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/listaAnotacoesFragment"
+        android:name="br.infnet.projeto_bloco_abbj.ui.fragment.ListaAnotacoesFragment"
+        android:label="lista_anotacoes_fragment"
+        tools:layout="@layout/lista_anotacoes_fragment" >
+        <action
+            android:id="@+id/action_listaAnotacoesFragment_to_addAnotacaoFragment"
+            app:destination="@id/addAnotacaoFragment" />
+        <action
+            android:id="@+id/action_listaAnotacoesFragment_to_detalhaAnotacaoFragment"
+            app:destination="@id/detalhaAnotacaoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addAnotacaoFragment"
+        android:name="br.infnet.projeto_bloco_abbj.ui.fragment.AddAnotacaoFragment"
+        android:label="add_anotacao_fragment"
+        tools:layout="@layout/add_anotacao_fragment" />
+    <fragment
+        android:id="@+id/detalhaAnotacaoFragment"
+        android:name="br.infnet.projeto_bloco_abbj.ui.fragment.DetalhaAnotacaoFragment"
+        android:label="detalha_anotacao_fragment"
+        tools:layout="@layout/detalha_anotacao_fragment" />
 </navigation>

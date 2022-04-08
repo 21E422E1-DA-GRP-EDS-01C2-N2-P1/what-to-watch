@@ -15,5 +15,5 @@ data class Item(
     @Embedded val volumeInfo: VolumeInfo?,
     @Embedded val saleInfo: SaleInfo?,
 //    @Embedded val accessInfo: AccessInfo?,
-    @Embedded val searchInfo: SearchInfo?
+    @Embedded val searchInfo: SearchInfo?,
 ) : Serializable
