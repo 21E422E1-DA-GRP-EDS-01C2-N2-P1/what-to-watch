@@ -24,6 +24,8 @@ import br.infnet.projeto_bloco_abbj.ui.adapter.LivroAdapter
 import br.infnet.projeto_bloco_abbj.ui.factory.LivrosViewModelFactory
 import br.infnet.projeto_bloco_abbj.ui.viewmodel.LivrosViewModel
 import br.infnet.projeto_bloco_abbj.utils.Utils
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class ListaLivrosFragment : Fragment() {
 
@@ -60,6 +62,13 @@ class ListaLivrosFragment : Fragment() {
         }
 
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (Firebase.auth.currentUser == null) {
+            findNavController().navigate(R.id.signinFragment)
+        }
     }
 
     override fun onDestroy() {

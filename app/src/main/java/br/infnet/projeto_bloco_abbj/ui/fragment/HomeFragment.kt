@@ -17,11 +17,14 @@ import br.infnet.projeto_bloco_abbj.data.TITULO_LIVRO_REQUEST
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class HomeFragment : Fragment() {
 
     private lateinit var btnBuscar: Button
     private lateinit var btnFavoritos: Button
+    private lateinit var btnLogout: Button
     private lateinit var tituloLivro: EditText
     private lateinit var autorLivro: EditText
 
@@ -32,6 +35,13 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         setupWidgets(view)
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (Firebase.auth.currentUser == null) {
+            findNavController().navigate(R.id.signinFragment)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -79,11 +89,17 @@ class HomeFragment : Fragment() {
         btnFavoritos.setOnClickListener {
             findNavController().navigate(R.id.favoritosFragment)
         }
+
+        btnLogout.setOnClickListener {
+            Firebase.auth.signOut()
+            findNavController().navigate(R.id.signinFragment)
+        }
     }
 
     private fun setupWidgets(view: View) {
         btnBuscar = view.findViewById(R.id.btn_buscar)
         btnFavoritos = view.findViewById(R.id.btn_favoritos)
+        btnLogout = view.findViewById(R.id.btn_logout)
         tituloLivro = view.findViewById(R.id.tituloLivro)
         autorLivro = view.findViewById(R.id.autorLivro)
     }

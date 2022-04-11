@@ -41,6 +41,13 @@ class ListaAnotacoesFragment : Fragment() {
         return view
     }
 
+    override fun onStart() {
+        super.onStart()
+        if (Firebase.auth.currentUser == null) {
+            findNavController().navigate(R.id.signinFragment)
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         lblTitulo.text = livro.volumeInfo?.title

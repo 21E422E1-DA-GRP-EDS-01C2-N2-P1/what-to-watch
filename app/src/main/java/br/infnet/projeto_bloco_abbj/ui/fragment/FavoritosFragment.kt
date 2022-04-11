@@ -26,6 +26,8 @@ import br.infnet.projeto_bloco_abbj.utils.FragmentReload
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 
 class FavoritosFragment : Fragment() {
@@ -45,6 +47,13 @@ class FavoritosFragment : Fragment() {
         loadAds()
 
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (Firebase.auth.currentUser == null) {
+            findNavController().navigate(R.id.signinFragment)
+        }
     }
 
     private fun loadAds() {

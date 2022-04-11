@@ -1,6 +1,7 @@
 package br.infnet.projeto_bloco_abbj.ui.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,7 +15,14 @@ import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import br.infnet.projeto_bloco_abbj.R
 import br.infnet.projeto_bloco_abbj.ui.viewmodel.SigninViewModel
+import com.facebook.AccessToken
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginResult
+import com.facebook.login.widget.LoginButton
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -31,8 +39,10 @@ class SigninFragment : Fragment() {
     private lateinit var editTextSigninSenha: EditText
     private lateinit var checkboxSigninLembrar: CheckBox
     private lateinit var btnSigninEntrar: Button
+    private lateinit var buttonFacebookLogin: LoginButton
     private lateinit var textViewSigninCadastrar: TextView
     private lateinit var auth: FirebaseAuth
+    private lateinit var callbackManager: CallbackManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,8 +54,46 @@ class SigninFragment : Fragment() {
         checkboxSigninLembrar = view.findViewById(R.id.checkboxSigninLembrarSenha)
         btnSigninEntrar = view.findViewById(R.id.btnSigninEntrar)
         textViewSigninCadastrar = view.findViewById(R.id.textViewSigninCadastrar)
+        buttonFacebookLogin = view.findViewById(R.id.login_button)
         auth = Firebase.auth // Instância de FirebaseAuth
+        callbackManager = CallbackManager.Factory.create()
+        buttonFacebookLogin.fragment = this
+        buttonFacebookLogin.setPermissions("email", "public_profile")
+        buttonFacebookLogin.registerCallback(callbackManager, object :
+            FacebookCallback<LoginResult> {
+            override fun onSuccess(loginResult: LoginResult) {
+                Log.d("TAG", "facebook:onSuccess:$loginResult")
+                handleFacebookAccessToken(loginResult.accessToken)
+                findNavController().navigate(R.id.HomeFragment)
+            }
+
+            override fun onCancel() {
+                Log.d("TAG", "facebook:onCancel")
+            }
+
+            override fun onError(error: FacebookException) {
+                Log.d("TAG", "facebook:onError", error)
+            }
+        })
+
         return view
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        callbackManager.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun handleFacebookAccessToken(token: AccessToken) {
+        val credential = FacebookAuthProvider.getCredential(token.token)
+        Firebase.auth.signInWithCredential(credential)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.d("TAG", "signInWithCredential:success")
+                } else {
+                    Log.w("TAG", "signInWithCredential:failure", task.exception)
+                }
+            }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

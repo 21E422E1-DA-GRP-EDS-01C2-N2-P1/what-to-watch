@@ -2,10 +2,17 @@ package br.infnet.projeto_bloco_abbj.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import br.infnet.projeto_bloco_abbj.R
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -15,8 +22,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //carregaAnuncios()
 
         btnNav = findViewById(R.id.bottomNavigationView)
 
@@ -38,34 +43,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-
-    /*private fun carregaAnuncios(){
-
-        val btn_Anuncio = this.findViewById<Button>(R.id.btn_buscar)
-
-        btn_Anuncio.setOnClickListener{
-
-            val adRequest = AdRequest.Builder().build()
-
-            InterstitialAd.load(this,
-                "ca-app-pub-3940256099942544/1033173712",
-                adRequest,
-                object: InterstitialAdLoadCallback() {
-
-                    override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                        interstitialAd.show(this@MainActivity)
-                    }
-
-                    //override fun onAdFailedToLoad(p0: LoadAdError) {}
-
-                })
-        }
-
-        //MobileAds.initialize(this){}
-
-        //val mAdView = this.findViewById<AdView>(R.id.btn_buscar)
-        //mAdView.loadAd(adRequest)
-
-    }*/
 }

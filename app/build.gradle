@@ -90,5 +90,8 @@ dependencies {
 //    Google AdMob
     implementation 'com.google.android.gms:play-services-ads:20.6.0'
 
+//    Facebook
+    implementation 'com.facebook.android:facebook-login:13.1.0'
+
 
 }

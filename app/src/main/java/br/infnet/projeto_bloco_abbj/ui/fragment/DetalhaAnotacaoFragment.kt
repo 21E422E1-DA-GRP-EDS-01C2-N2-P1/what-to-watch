@@ -12,6 +12,8 @@ import androidx.navigation.fragment.findNavController
 import br.infnet.projeto_bloco_abbj.ui.viewmodel.DetalhaAnotacaoViewModel
 import br.infnet.projeto_bloco_abbj.R
 import br.infnet.projeto_bloco_abbj.data.ANOTACAO_ID_REQUEST
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 
 class DetalhaAnotacaoFragment : Fragment() {
@@ -35,6 +37,13 @@ class DetalhaAnotacaoFragment : Fragment() {
             txtCorpo.setText(it.corpo)
         }
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (Firebase.auth.currentUser == null) {
+            findNavController().navigate(R.id.signinFragment)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

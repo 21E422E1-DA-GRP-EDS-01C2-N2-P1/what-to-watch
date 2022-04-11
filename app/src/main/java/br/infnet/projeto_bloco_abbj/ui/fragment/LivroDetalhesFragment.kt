@@ -13,10 +13,13 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
+import androidx.navigation.fragment.findNavController
 import br.infnet.projeto_bloco_abbj.R
 import br.infnet.projeto_bloco_abbj.data.EXTRA_LIVRO
 import br.infnet.projeto_bloco_abbj.data.model.Item
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 
 
@@ -51,6 +54,13 @@ class LivroDetalhesFragment : Fragment() {
 
         }
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (Firebase.auth.currentUser == null) {
+            findNavController().navigate(R.id.signinFragment)
+        }
     }
 
     private fun bindComponents(livro: Item) {

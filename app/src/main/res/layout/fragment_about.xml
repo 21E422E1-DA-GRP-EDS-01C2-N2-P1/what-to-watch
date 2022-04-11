@@ -54,7 +54,7 @@
         android:id="@+id/txtViewFooterAbout"
         android:layout_width="0dp"
         android:layout_height="86dp"
-        android:text="Desenvolvido por:\n-Ana Carolina Melo\n-BrunoCister\n-Bruno Ferreira\n-Jennifer Omena"
+        android:text="Desenvolvido por:\n-Ana Carolina Melo\n-Bruno Cister\n-Bruno Ferreira\n-Jennifer Omena"
         android:textColor="@color/colorDarkBlue"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
